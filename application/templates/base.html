@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Flask Web Application</title>
+    </head>
+
+    <body>
+        <header>
+            {% include 'nav.html' %}
+        </header>
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </body>
+</html>
