@@ -4,6 +4,7 @@
 - **Flask-WTF:** `pip install flask-wtf`
 - **Flask-SQLAlchemy:** `pip install flask-sqlalchemy`
 - **Flask-Migrate:** `pip install flask-migrate`
+- **Flask-Login:** `pip install flask-login`
 
 ## Database migrations
 0. **Define environment variable:** `export FLASK_APP=main.py`

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h1>Register page</h1>
+
+        <form method="POST">
+            {{ form.csrf_token }}
+            <p>
+                {{ form.name.label }} {{ form.name(placeholder='John Smith') }}
+                {% for error in form.name.errors %}
+                    {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.email.label }} {{ form.email(placeholder='youremail@example.com') }}
+                {% for error in form.email.errors %}
+                    {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password.label }} {{ form.password() }}
+                {% for error in form.password.errors %}
+                    {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.confirm_password.label }} {{ form.confirm_password() }}
+                {% for error in form.confirm_password.errors %}
+                    {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.submit }}
+            </p>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+{% endblock %}

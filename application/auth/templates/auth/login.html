@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h1>Login page</h1>
+
+        <form method="POST">
+            {{ form.csrf_token }}
+            <p>
+                {{ form.email.label }} {{ form.email(placeholder='youremail@example.com') }}
+            </p>
+            <p>
+                {{ form.password.label }} {{ form.password() }}
+            </p>
+            <p>
+                {{ form.submit }}
+            </p>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+{% endblock %}
