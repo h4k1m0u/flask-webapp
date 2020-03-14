@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h1>Upload page</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <p>
+                {{ form.photo.label }} {{ form.photo() }}
+                {% for error in form.photo.errors %}
+                    {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.submit }}
+            </p>
+        </form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+{% endblock %}
+

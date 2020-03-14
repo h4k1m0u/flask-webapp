@@ -1,5 +1,6 @@
 <nav>
     <ul>
+        <li><a href="{{ url_for('file.upload') }}">Upload</a></li>
         {% if current_user.is_authenticated %}
             <li><a href="{{ url_for('auth.profile') }}">Profile</a></li>
             <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
